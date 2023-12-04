@@ -1,0 +1,15 @@
+{% extends 'admin/base.html' %} {% block extrahead %}{{ block.super }}
+<style>
+  html[data-theme="light"],
+  html[data-theme="dark"],
+  :root {
+    --header-bg: #090138;
+    --header-color: #cccccc;
+    --accent: #fff;
+    --primary: #4A3D8F;
+    --button-hover-bg: #5b5579;
+    --default-button-bg: #21215C;
+    --default-button-hover-bg: #130B5C;
+  }
+</style>
+{% endblock %}

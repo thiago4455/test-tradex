@@ -1,0 +1,6 @@
+*/__pycache__/
+.idea/**/workspace.xml
+*.pyc
+*.sql
+*vscode/*
+*.DS_Store

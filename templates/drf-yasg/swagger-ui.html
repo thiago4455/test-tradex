@@ -1,0 +1,16 @@
+{% extends "drf-yasg/swagger-ui.html" %}
+{% block extra_styles %}
+    <style>
+        .swagger-ui .topbar{
+            background-color: #090138;
+        }
+
+        .swagger-ui .topbar .download-url-wrapper input[type="text"]{
+            border-color: #4A3D8F;
+        }
+
+        .swagger-ui .topbar .download-url-wrapper .download-url-button{
+            background-color: #4A3D8F;
+        }
+    </style>
+{% endblock %}
