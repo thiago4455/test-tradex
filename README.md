@@ -19,6 +19,7 @@ cd test-tradex/
 docker run --rm -ti -p 8000:8000 -e UID=$(id -u) -e GID=$(id -g) -v "$PWD":/home/tradex/work 0xb074/tradex-backend
 ```
 Ele já iniciará um terminal rodando a aplicação. Caso precise rodar algo dentro do ambiente do container, basta dar um Ctrl-C e acessar a linha de comando.
+
 O banco de dados é importado durante o build da imagem, e as alterações são apagadas juntamente com o encerramento do container. Para persistir os dados do banco, crie um volume no docker, e rode com o seguinte termo adicional:
 ```bash
 docker volume create postgres_data
