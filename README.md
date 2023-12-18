@@ -6,6 +6,24 @@ Desenvolver API usando Python e Django capaz de:
 *  Realizar CRUD de produtos
 *  Visualizar a variação de preço dos produtos com o tempo
 
+## Execução do ambiente de desenvolvimento
+### Utilizando o Docker
+Faça o pull ou build da imagem
+```bash
+docker pull 0xb074/tradex-backend
+```
+Clone o repositório e rode o container com o comando:
+```bash
+git clone https://github.com/thiago4455/test-tradex/
+cd test-tradex/
+docker run --rm -ti -p 8000:8000 -e UID=$(id -u) -e GID=$(id -g) -v "$PWD":/home/tradex/work 0xb074/tradex-backend
+```
+Ele já iniciará um terminal rodando a aplicação. Caso precise rodar algo dentro do ambiente do container, basta dar um Ctrl-C e acessar a linha de comando.
+O banco de dados é importado durante o build da imagem, e as alterações são apagadas juntamente com o encerramento do container. Para persistir os dados do banco, crie um volume no docker, e rode com o seguinte termo adicional:
+```bash
+docker volume create postgres_data
+docker run --rm -ti -p 8000:8000 -e UID=$(id -u) -e GID=$(id -g) -v "$PWD":/home/tradex/work -v postgres_data:/var/lib/postgresql/14/main 0xb074/tradex-backend
+```
 ## Implementação
 Além das operações básicas de CRUD, para que fosse possível realizar o controle da variação de preço, as ofertas são definidas em uma tabela separada das informações do produto.
 
