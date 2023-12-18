@@ -340,9 +340,9 @@ ALTER TABLE public.django_session OWNER TO postgres;
 
 COPY public.api_price (id, price, created_at, product_id) FROM stdin;
 1	500.00	2023-12-03 21:05:40.164178-03	9781108420419
-2	400.00	2023-12-03 21:06:20.823205-03	9781107189638
-3	650.00	2023-12-04 00:11:33.196525-03	9781108420419
-4	575.00	2023-12-04 00:18:05.816504-03	9781107189638
+4	575.00	2023-01-04 00:18:05-03	9781107189638
+2	400.00	2023-05-03 21:06:20-03	9781107189638
+3	650.00	2023-07-04 00:11:33-03	9781108420419
 \.
 
 
@@ -417,7 +417,7 @@ COPY public.auth_permission (id, name, content_type_id, codename) FROM stdin;
 --
 
 COPY public.auth_user (id, password, last_login, is_superuser, username, first_name, last_name, email, is_staff, is_active, date_joined) FROM stdin;
-1	pbkdf2_sha256$600000$qdFepA5iGUUZIEwxnWIEng$tdjXvGvMYOGiRC/9JBFzWvKhmUp0KzwH8ElXx3c1oEk=	2023-12-03 21:04:00.157034-03	t	admin			admin@example.com	t	t	2023-12-03 21:03:54.095581-03
+1	pbkdf2_sha256$600000$qdFepA5iGUUZIEwxnWIEng$tdjXvGvMYOGiRC/9JBFzWvKhmUp0KzwH8ElXx3c1oEk=	2023-12-17 22:55:26.718545-03	t	admin			admin@example.com	t	t	2023-12-03 21:03:54.095581-03
 \.
 
 
@@ -453,6 +453,20 @@ COPY public.django_admin_log (id, action_time, object_id, object_repr, action_fl
 9	2023-12-03 22:48:51.640721-03	2	Introduction to Quantum Mechanics - R$ 400.00	2	[]	8	1
 10	2023-12-04 00:11:33.200061-03	3	Introduction to Electrodynamics - R$ 650	1	[{"added": {}}]	8	1
 11	2023-12-04 00:18:05.823175-03	4	Introduction to Quantum Mechanics - R$ 575	1	[{"added": {}}]	8	1
+12	2023-12-17 23:01:21.668507-03	4	Introduction to Quantum Mechanics - R$ 575.00	2	[{"changed": {"fields": ["Created at"]}}]	8	1
+13	2023-12-17 23:08:09.372298-03	2	Introduction to Quantum Mechanics - R$ 400.00	2	[{"changed": {"fields": ["Created at"]}}]	8	1
+14	2023-12-17 23:08:45.382629-03	3	Introduction to Electrodynamics - R$ 650.00	2	[{"changed": {"fields": ["Created at"]}}]	8	1
+15	2023-12-17 23:18:37.046172-03	6666666666667	66666666666 - 6666666666667	3		7	1
+16	2023-12-17 23:18:37.05327-03	6666666666666	66666666666 - 6666666666666	3		7	1
+17	2023-12-17 23:18:37.056395-03	1111111111112	Teste - 1111111111112	3		7	1
+18	2023-12-17 23:18:37.05887-03	1111111111111	Teste - 1111111111111	3		7	1
+19	2023-12-17 23:26:32.813568-03	4545463647474	ttfd - 4545463647474	3		7	1
+20	2023-12-17 23:26:32.816676-03	4535343434366	trste4 - 4535343434366	3		7	1
+21	2023-12-17 23:26:32.819173-03	1235445464664	Teste - 1235445464664	3		7	1
+22	2023-12-17 23:26:32.821396-03	1122334455667	Gato preto - 1122334455667	3		7	1
+23	2023-12-17 23:37:23.050735-03	6668875767575	Gato Preto - 6668875767575	3		7	1
+24	2023-12-17 23:37:51.375266-03	1157264826846	Gato Preto - 1157264826846	3		7	1
+25	2023-12-17 23:39:01.678106-03	5675768686854	Gatinho - 5675768686854	3		7	1
 \.
 
 
@@ -505,6 +519,7 @@ COPY public.django_migrations (id, app, name, applied) FROM stdin;
 
 COPY public.django_session (session_key, session_data, expire_date) FROM stdin;
 a7mygnpgoow4x1smfzcsccdmxrslzrmf	.eJxVjDsOwjAQBe_iGln-sjYlPWew1rsODiBHipMKcXcSKQW0b2beWyRcl5rWXuY0srgILU6_W0Z6lrYDfmC7T5KmtsxjlrsiD9rlbeLyuh7u30HFXrc6MEXy0RrOAGSBFFKOELTjEgFJafAFwBoX_LAhMkNwzthztB6U9uLzBef1N1U:1r9wRM:Ipu2GB_Hrt8XR3ejm4K9J_L2YVe2wB_KHzlIvLTkztw	2023-12-17 21:04:00.160475-03
+7v2djwvjcih6ck93j35y2wn4i35n20zl	.eJxVjDsOwjAQBe_iGln-sjYlPWew1rsODiBHipMKcXcSKQW0b2beWyRcl5rWXuY0srgILU6_W0Z6lrYDfmC7T5KmtsxjlrsiD9rlbeLyuh7u30HFXrc6MEXy0RrOAGSBFFKOELTjEgFJafAFwBoX_LAhMkNwzthztB6U9uLzBef1N1U:1rF2qs:d8_yQoWoXsBkjpa_VvxJ9ZrZeEty0aAmHIAZ1W5iOq8	2023-12-31 22:55:26.737644-03
 \.
 
 
@@ -512,7 +527,7 @@ a7mygnpgoow4x1smfzcsccdmxrslzrmf	.eJxVjDsOwjAQBe_iGln-sjYlPWew1rsODiBHipMKcXcSKQ
 -- Name: api_price_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
-SELECT pg_catalog.setval('public.api_price_id_seq', 4, true);
+SELECT pg_catalog.setval('public.api_price_id_seq', 6, true);
 
 
 --
@@ -561,7 +576,7 @@ SELECT pg_catalog.setval('public.auth_user_user_permissions_id_seq', 1, false);
 -- Name: django_admin_log_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
-SELECT pg_catalog.setval('public.django_admin_log_id_seq', 11, true);
+SELECT pg_catalog.setval('public.django_admin_log_id_seq', 25, true);
 
 
 --
