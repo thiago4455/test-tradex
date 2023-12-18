@@ -24,6 +24,33 @@ O banco de dados é importado durante o build da imagem, e as alterações são 
 docker volume create postgres_data
 docker run --rm -ti -p 8000:8000 -e UID=$(id -u) -e GID=$(id -g) -v "$PWD":/home/tradex/work -v postgres_data:/var/lib/postgresql/14/main 0xb074/tradex-backend
 ```
+
+### Utilizando venv
+Instale a versão correta to python e postgres:
+```bash
+sudo add-apt-repository ppa:deadsnakes/ppa
+sudo apt-get install python3.11 python3.11-venv postgresql
+sudo systemctl enable postgresql --now
+```
+Crie uma env para o projeto, e instale os requirements:
+```bash
+mkdir ~/.venv/ && cd ~/.venv/
+python3.11 -m venv tradex
+source tradex/bin/activate
+cd /diretorio/do/repositorio/clonado
+pip install -r /tmp/requirements/requirements.txt
+```
+
+Crie um banco de dados e importe o dump:
+```bash
+sudo -u postgres createdb tradex
+cat /tmp/dump.db | sudo -u postgres psql tradex
+```
+Inicie o projeto
+```
+python manage.py 0.0.0.0:8000
+```
+
 ## Implementação
 Além das operações básicas de CRUD, para que fosse possível realizar o controle da variação de preço, as ofertas são definidas em uma tabela separada das informações do produto.
 
